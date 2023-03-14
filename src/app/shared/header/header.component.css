@@ -1,0 +1,17 @@
+.deactivate-Item {
+cursor: pointer;
+  color: gray !important;
+}
+
+.activate-Item {
+    cursor: pointer;
+  color: white !important;
+}
+
+.hover-zoom {
+  transition: transform .2s;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.1);
+}

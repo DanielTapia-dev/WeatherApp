@@ -1,0 +1,44 @@
+<header>
+    <div class="py-2 bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-end">
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                    <li>
+                        <a id="home" name="home" routerLink="home" class="nav-link deactivate-Item hover-zoom" (click)="headerSelected('home')" style="color: white">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a id="clima" name="clima" routerLink="weatherAdministration" class="nav-link deactivate-Item hover-zoom"
+                            (click)="headerSelected('clima')" style="color: white">
+                            Administrador del Clima
+                        </a>
+                    </li>
+                    <li>
+                        <a id="dias" name="dias" routerLink="daysAdministration" class="nav-link deactivate-Item hover-zoom"
+                            (click)="headerSelected('dias')" style="color: white">
+                            Administrador de dias
+                        </a>
+                    </li>
+                    <li>
+                        <a id="contact" name="contact" routerLink="contact"  class="nav-link deactivate-Item hover-zoom" (click)="headerSelected('contact')" style="color: gray">
+                            Contactanos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="px-3 py-2 border-bottom mb-3">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-light text-dark me-2">Login</button>
+                <button type="button" class="btn btn-primary">Sign-up</button>
+            </div>
+        </div>
+    </div>
+</header>
