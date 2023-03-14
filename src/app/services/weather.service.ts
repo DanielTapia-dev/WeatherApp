@@ -17,8 +17,8 @@ export class WeatherService {
     return this.http.get<WeatherApiResponse>(this.baseUrl);
   }
 
-  getCurrentWeather(city: string) {
-    return this.http.get(`${environment.urlOpenWeather}/weather?q=${city}&appid=${environment.apiKey}`);
+  getCurrentWeather(city: string, unixTime: Date) {
+    return this.http.get(`${environment.urlOpenWeather}/weather?q=${city}&dt=${unixTime}&appid=${environment.apiKey}`);
   }
 
   getWeatherForecast(city: string) {

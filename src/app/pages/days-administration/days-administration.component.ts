@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import OpenWeatherAPI from 'openweather-api-node';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 import { WeatherService } from 'src/app/services/weather.service';
 import { WeatherApiResponse } from '../../interfaces/weatherApiResponse.interface';
 
 @Component({
   selector: 'app-days-administration',
   templateUrl: './days-administration.component.html',
-  styleUrls: ['./days-administration.component.css']
+  styleUrls: ['./days-administration.component.css'],
 })
 export class DaysAdministrationComponent {
 
@@ -25,12 +26,36 @@ export class DaysAdministrationComponent {
     list: []
   };
 
-  constructor(private weatherServices: WeatherService) { }
+  form = new FormGroup({});
+  model = {
+    city: '',
+    date: new Date('2023-03-14')
+  };
+  fields: FormlyFieldConfig[] = [];
+
+  constructor(private weatherServices: WeatherService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.loadWeather();
-    this.loadWeatherPerDay();
-    this.loadWeatherPerWeek();
+    this.fields = [
+      {
+        key: 'city',
+        type: 'input',
+        templateOptions: {
+          label: 'Ciudad',
+          placeholder: 'Ingrese el nombre de la ciudad',
+          required: true,
+        },
+      },
+      {
+        key: 'date',
+        type: 'datepicker',
+        templateOptions: {
+          label: 'Fecha',
+          placeholder: 'Ingrese la fecha',
+          required: true,
+        },
+      },
+    ];
   }
 
   loadWeather() {
@@ -40,10 +65,13 @@ export class DaysAdministrationComponent {
   }
 
   loadWeatherPerDay() {
-    this.weatherServices.getCurrentWeather('Quito').subscribe(res => {
-      console.log('Por Dia');
-      console.log(res);
-    });
+    if (this.form.valid) {
+      const date = new Date('2023-03-20');
+      this.weatherServices.getCurrentWeather(this.model.city, this.model.date).subscribe(res => {
+        console.log('Por Dia');
+        console.log(res);
+      });
+    }
   }
 
   loadWeatherPerWeek() {

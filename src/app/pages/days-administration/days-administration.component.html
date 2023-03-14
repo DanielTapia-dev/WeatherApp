@@ -1,8 +1,4 @@
-<div class="container">
-    <h1>{{ weatherData.city.name }}</h1>
-    <div *ngFor="let item of weatherData.list; let i = index">
-        <p>{{ item.dt_txt | date:'medium' }}</p>
-        <p>{{ item.main.temp }}°C</p>
-        <p>{{ item.weather[0].description }}</p>
-    </div>
-</div>
+<form [formGroup]="form" (ngSubmit)="loadWeatherPerDay()">
+    <formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Consultar</button>
+</form>

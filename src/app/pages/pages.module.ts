@@ -8,6 +8,9 @@ import { PagesComponent } from './pages.component';
 import { WeatherAdministrationComponent } from './weather-administration/weather-administration.component';
 import { DaysAdministrationComponent } from './days-administration/days-administration.component';
 import { RouterModule } from '@angular/router';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -21,7 +24,11 @@ import { RouterModule } from '@angular/router';
         CommonModule,
         SharedModule,
         PagesRoutingModule,
-        RouterModule
+        RouterModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FormlyModule.forRoot(),
+        FormlyBootstrapModule,
     ],
     exports: [
         HomeComponent,
