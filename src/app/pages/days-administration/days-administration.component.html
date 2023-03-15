@@ -1,8 +1,22 @@
+<form class="container" [formGroup]="form" (ngSubmit)="loadWeatherPerDay()">
+    <formly-form class="row" [model]="form" [fields]="fields" [form]="form"></formly-form>
+    <button type="submit" class="btn btn-primary mt-3" style="margin-right: 5px;">Revisar</button>
+    <button *ngIf="this.searchDay" type="button" class="btn btn-info mt-3" (click)="changeSearch('day')">Día</button>
+    <button *ngIf="this.searchWeek" type="button" class="btn btn-info mt-3"
+        (click)="changeSearch('week')">Semana</button>
+</form>
 <div class="container">
-    <h1>{{ weatherData.city.name }}</h1>
-    <div *ngFor="let item of weatherData.list; let i = index">
-        <p>{{ item.dt_txt | date:'medium' }}</p>
-        <p>{{ item.main.temp }}°C</p>
-        <p>{{ item.weather[0].description }}</p>
+    <div class="mt-3 row mb-2">
+        <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let card of weatherCardList">
+            <app-weather-card-day *ngIf="card.day != ''" [day]="card.day" [image]="card.image"
+                [description]="card.description" [minTemp]="card.minTemp" [maxTemp]="card.maxTemp"
+                [humidity]="card.humidity" [conditions]="card.conditions"></app-weather-card-day>
+        </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
