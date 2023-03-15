@@ -1,28 +1,37 @@
-# WeatherApp
+# Project Name
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+This is a sample Angular project that demonstrates how to use the OpenWeather and VisualCrossing APIs to create an admin panel and a daily weather visualization.
 
-## Development server
+# Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular version 15.2.2 must be installed on your system.
+- Packages must be restored using npm version 6.14.11.
 
-## Code scaffolding
+# Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To run the project, follow these steps:
 
-## Build
++ Clone the repository to your local machine.
++ Navigate to the project directory.
++ Run npm install to restore the packages.
++ Run ng serve to start the development server.
++ Navigate to http://localhost:4200/ in your web browser to view the project.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+# APIs
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This project makes use of two APIs:
 
-## Running end-to-end tests
+- OpenWeather API: This API is used to create the admin panel.
+- VisualCrossing API: This API is used for daily weather visualization.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Contributing
+If you wish to contribute to this project, please follow the steps below:
 
-## Further help
++ Fork the repository.
++ Create a new branch for your feature.
++ Commit your changes and push them to your branch.
++ Submit a pull request to the main repository.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# WeatherApp
+# License
+This project is licensed under the MIT License.

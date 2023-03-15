@@ -1,1 +1,55 @@
-<p>weather-administration works!</p>
+<div class="container">
+    <form class="container" [formGroup]="form" (ngSubmit)="loadWeather()">
+        <formly-form class="row" [model]="form" [fields]="fields" [form]="form"></formly-form>
+        <button type="submit" class="btn btn-primary mt-3" style="margin-right: 5px;">Revisar</button>
+    </form>
+    <div class="row mt-3">
+        <input type="text" class="form-control" placeholder="Fecha" [(ngModel)]="filterWeatherFecha"
+            name="filterWeatherFecha" style="width: 8%; margin-bottom: 10px;" />
+        <input type="text" class="form-control" placeholder="Descripción" [(ngModel)]="filterWeatherDescripcion"
+            name="filterWeatherDescripción" style="width: 18%; margin-bottom: 10px;" />
+        <input type="text" class="form-control" placeholder="Temperatura" [(ngModel)]="filterWeatherTemperatura"
+            name="filterWeatherTemperatura" style="width: 18%; margin-bottom: 10px;" />
+        <input type="text" class="form-control" placeholder="Humedad" [(ngModel)]="filterWeatherHumedad"
+            name="filterWeatherHumedad" style=" width: 13%; margin-bottom: 10px;" />
+        <input type="text" class="form-control" placeholder="Visibilidad" [(ngModel)]="filterWeatherVisibilidad"
+            name="filterWeatherVisibilidad" style="width: 14%; margin-bottom: 10px;" />
+        <input type="text" class="form-control" placeholder="Velocidad del viento" [(ngModel)]="filterWeatherspeed"
+            name="filterWeatherspeed" style="width: 28%; margin-bottom: 10px;" />
+    </div>
+    <div style="overflow-x: scroll;  min-width: 300px;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Temperatura</th>
+                    <th>Humedad</th>
+                    <th>Visibilidad</th>
+                    <th>Velocidad del viento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of weatherList | 
+                                            filterweather: filterWeatherFecha
+                                            : filterWeatherDescripcion
+                                            : filterWeatherTemperatura
+                                            : filterWeatherHumedad
+                                            : filterWeatherVisibilidad
+                                            : filterWeatherspeed"
+                    [ngStyle]="{'background-color': item.main.temp > 302 ? 'rgb(255, 200, 200)' : item.main.temp > 298 ? 'rgb(255, 192, 203)' : item.main.temp > 285  ? 'rgb(255, 255, 200)' : 'inherit'} ">
+                    <td>{{ item.dt_txt }}</td>
+                    <td>{{ item.weather[0].description }}</td>
+                    <td>{{ item.main.temp }} (K)</td>
+                    <td>{{ item.main.humidity }}</td>
+                    <td>{{ item.visibility }}</td>
+                    <td>{{ item.wind.speed }} (m/s)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>

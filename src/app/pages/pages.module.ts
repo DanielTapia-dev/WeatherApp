@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyFieldDate } from '../shared/formly-field-date/formly-field-date.component';
+import { FilerWeatherPipe } from './pipes/weather.pipe';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { FormlyFieldDate } from '../shared/formly-field-date/formly-field-date.c
         PagesComponent,
         WeatherAdministrationComponent,
         DaysAdministrationComponent,
+        FilerWeatherPipe
     ],
     imports: [
         CommonModule,
