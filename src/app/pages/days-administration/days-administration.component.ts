@@ -25,21 +25,6 @@ export class DaysAdministrationComponent {
   searchDay: boolean = true;
   searchWeek: boolean = false;
   weatherCardList: WeatherData[] = [];
-  weatherData: WeatherApiResponse = {
-    city: {
-      id: 0,
-      name: '',
-      coord: {
-        lat: 0,
-        lon: 0
-      },
-      country: '',
-      population: 0,
-      timezone: 0
-    },
-    list: []
-  };
-
   form = new FormGroup({});
   fields: FormlyFieldConfig[] = [
     {
@@ -68,12 +53,9 @@ export class DaysAdministrationComponent {
 
   }
 
-  loadWeather() {
-    this.weatherServices.getWeather().subscribe(res => {
-      console.log(res);
-    });
-  }
-
+  /**
+ * This class retrieves weather data from Visual Crossing services and displays custom weather cards for each day and week.
+ */
   loadWeatherPerDay() {
     const city = this.form.get('city')?.value;
     let date = this.form.get('date')?.value || '';
@@ -100,7 +82,6 @@ export class DaysAdministrationComponent {
                 maxTemp: res.days[weatherDays].tempmax,
                 humidity: res.days[weatherDays].humidity
               });
-              console.log(this.weatherCardList);
             });
           }
         });
@@ -122,9 +103,7 @@ export class DaysAdministrationComponent {
                 humidity: res.days[weatherDays].humidity
               });
               if (weatherDays == res.days.length - 1) {
-                console.log('INgreso');
                 this.weatherCardList.sort((a, b) => new Date(a.day).getTime() - new Date(b.day).getTime());
-                console.log(this.weatherCardList);
               }
             });
           }
@@ -138,13 +117,9 @@ export class DaysAdministrationComponent {
     }
   }
 
-  loadWeatherPerWeek() {
-    this.weatherServices.getWeatherForecast('Quito').subscribe(res => {
-      console.log('Por Semana');
-      console.log(res);
-    });
-  }
-
+  /*
+ Change the weather query from day to week
+ */
   changeSearch(searchMode: string) {
     if (searchMode === 'day') {
       this.searchWeek = true;
@@ -154,8 +129,11 @@ export class DaysAdministrationComponent {
     return this.searchDay = true;
   }
 
+  /*
+  Get the last day of the week
+ */
   getEndDayOfWeek(date: Date): Date {
-    const sixDayOnMiliSeconds = 6 * 24 * 60 * 60 * 1000; 
+    const sixDayOnMiliSeconds = 6 * 24 * 60 * 60 * 1000;
     const dateSixDaysLater = new Date(date.getTime() + sixDayOnMiliSeconds);
     return dateSixDaysLater;
   }
