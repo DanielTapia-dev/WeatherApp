@@ -1,0 +1,20 @@
+
+.social-link {
+  animation: pulse 1s infinite;
+  font-size: 30px;
+  margin: 2px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
