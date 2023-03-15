@@ -1,1 +1,17 @@
-<p>weather-card-day works!</p>
+<div class="card" >
+    <div class="card-body">
+        <h5 class="card-title">Temperatura actual</h5>
+        <h6 class="card-subtitle mb-2 text-muted">El clima el día {{day}} sera <b>{{conditions}}</b></h6>
+        <div class="row">
+            <div class="col-4">
+                <img class="img-fluid" src="../../../assets/img/{{image}}">
+            </div>
+            <div class="col-8">
+                <p>{{description}}</p>
+                <p><b>Temperatura minima:</b> {{minTemp}}°C</p>
+                <p><b>Temperatura máxima:</b> {{maxTemp}}°C</p>
+                <p><b>Humedad:</b> {{humidity}}%</p>
+            </div>
+        </div>
+    </div>
+</div>

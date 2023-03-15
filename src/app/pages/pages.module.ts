@@ -7,10 +7,10 @@ import { PagesRoutingModule } from './pages.routing';
 import { PagesComponent } from './pages.component';
 import { WeatherAdministrationComponent } from './weather-administration/weather-administration.component';
 import { DaysAdministrationComponent } from './days-administration/days-administration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormlyModule } from '@ngx-formly/core';
-import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormlyFieldDate } from '../shared/formly-field-date/formly-field-date.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ContactComponent,
         PagesComponent,
         WeatherAdministrationComponent,
-        DaysAdministrationComponent
+        DaysAdministrationComponent,
     ],
     imports: [
         CommonModule,
@@ -27,8 +27,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         RouterModule,
         FormsModule,
         ReactiveFormsModule,
-        FormlyModule.forRoot(),
-        FormlyBootstrapModule,
+        FormlyModule.forRoot({
+            types: [
+                { name: 'date', component: FormlyFieldDate }
+            ]
+        }),
     ],
     exports: [
         HomeComponent,
