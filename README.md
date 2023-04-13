@@ -1,4 +1,4 @@
-# Project Name
+# Project Name 1
 
 This is a sample Angular project that demonstrates how to use the OpenWeather and VisualCrossing APIs to create an admin panel and a daily weather visualization.
 
